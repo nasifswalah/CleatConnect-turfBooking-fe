@@ -12,6 +12,10 @@ const AuthPage = () => {
 
     const [modeChanger, setModeChanger] = useState("");
 
+    const handleSignUp = () =>{
+      
+    }
+
   return (
     <>
     <div className={`conatiner ${modeChanger}`}>
@@ -52,7 +56,7 @@ const AuthPage = () => {
               <img src={lockIcon} alt="" />
               <input type="password" placeholder="Password" />
             </div>
-            <input type="submit" className="btn" value="Sign up" />
+            <input type="submit" className="btn" value="Sign up" onClick={handleSignUp} />
             <p className='google-text'>or continue with google</p>
             <div className="google">
                 <img src={googleIcon} alt="" className='google-icon'/>
