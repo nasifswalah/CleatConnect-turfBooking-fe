@@ -1,18 +1,19 @@
-.conatiner {
+.main-conatiner {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: #fff;
+  background-image: url("../../../footballImage.jpg");
+  background-size: cover;
   overflow: hidden;
 }
 
-.conatiner:before {
+.main-conatiner:before {
   content: "";
   position: absolute;
   width: 2000px;
   height: 2000px;
   border-radius: 50%;
-  background: linear-gradient(-45deg, #62b340, #52b631);
+  background: linear-gradient(-45deg, #282883, #39FF14);
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
@@ -62,10 +63,10 @@ form.sign-in-form {
   z-index: 2;
 }
 
-.title {
+.auth-title {
   font-size: 2.2rem;
   margin-bottom: 10px;
-  color: rgb(83, 83, 83);
+  color: #f0f0f0;
 }
 
 .input-field {
@@ -110,7 +111,7 @@ form.sign-in-form {
   font-weight: 600;
   text-transform: uppercase;
   outline: none;
-  background-color: #65b741;
+  background-color: #0DBA85;
   color: #fff;
   margin: 10px 0;
   cursor: pointer;
@@ -134,7 +135,7 @@ form.sign-in-form {
 .google-icon {
   height: 36px;
   width: 36px;
-  border: 2px solid #65b741;
+  border: 2px solid #0DBA85;
   margin: 0 0.45rem;
   border-radius: 50%;
   padding: 3px;
@@ -143,7 +144,7 @@ form.sign-in-form {
 }
 
 .google-icon:hover {
-  background-color: #65b741;
+  background-color: #0DBA85;
 }
 
 .panel-container {
@@ -211,50 +212,50 @@ form.sign-in-form {
   transition: 0.9s 0.6s ease-in-out;
 }
 
-.conatiner.sign-up-mode:before {
+.main-conatiner.sign-up-mode:before {
   transform: translate(100%, -50%);
   right: 52%;
 }
 
-.conatiner.sign-up-mode .left-panel .image,
-.conatiner.sign-up-mode .left-panel .content {
+.main-conatiner.sign-up-mode .left-panel .image,
+.main-conatiner.sign-up-mode .left-panel .content {
   transform: translateX(-800px);
 }
 
-.conatiner.sign-up-mode .right-panel .image,
-.conatiner.sign-up-mode .right-panel .content {
+.main-conatiner.sign-up-mode .right-panel .image,
+.main-conatiner.sign-up-mode .right-panel .content {
   transform: translateX(0px);
 }
 
-.conatiner.sign-up-mode .left-panel {
+.main-conatiner.sign-up-mode .left-panel {
   pointer-events: none;
 }
 
-.conatiner.sign-up-mode .auth-container {
+.main-conatiner.sign-up-mode .auth-container {
   left: 25%;
 }
 
-.conatiner.sign-up-mode .right-panel {
+.main-conatiner.sign-up-mode .right-panel {
   pointer-events: all;
 }
 
-.conatiner.sign-up-mode form.sign-in-form {
+.main-conatiner.sign-up-mode form.sign-in-form {
   z-index: 1;
   opacity: 0;
 }
 
-.conatiner.sign-up-mode form.sign-up-form {
+.main-conatiner.sign-up-mode form.sign-up-form {
   z-index: 2;
   opacity: 1;
 }
 
 @media (max-width: 870px) {
-  .conatiner {
+  .main-conatiner {
     min-height: 800px;
     height: 100vh;
   }
 
-  .conatiner:before {
+  .main-conatiner:before {
     width: 1500px;
     height: 1500px;
     left: 30%;
@@ -324,18 +325,18 @@ form.sign-in-form {
     transform: translateY(300px);
   }
 
-  .conatiner.sign-up-mode:before{
+  .main-conatiner.sign-up-mode:before{
     transform: translate(-50%, 100%);
     bottom: 32%;
     right: initial;
   }
 
-  .conatiner.sign-up-mode .left-panel .image,
-  .conatiner.sign-up-mode .left-panel .content{
+  .main-conatiner.sign-up-mode .left-panel .image,
+  .main-conatiner.sign-up-mode .left-panel .content{
 transform: translateY(-300px);
   }
 
-  .conatiner.sign-up-mode .auth-container{
+  .main-conatiner.sign-up-mode .auth-container{
     top: 5%;
     transform: translate(-50%, 0);
     left: 50%;
@@ -355,12 +356,12 @@ transform: translateY(-300px);
         padding: 0.5rem 1rem;
     }
 
-    .conatiner:before{
+    .main-conatiner:before{
         bottom: 72%;
         left: 50%;
     }
 
-    .conatiner.sign-up-mode:before{
+    .main-conatiner.sign-up-mode:before{
         bottom: 28%;
         left: 50%;
     }
