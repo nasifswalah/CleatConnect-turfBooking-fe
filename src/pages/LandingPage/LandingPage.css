@@ -1,5 +1,5 @@
 .big-wrapper{
-    padding: 1.7rem 0 2rem;
+    padding: 0 0 2rem;
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
@@ -11,6 +11,11 @@
 
 .start-btn{
     text-decoration: none;
+}
+
+.showcase-area{
+    margin:auto 0;
+    padding: 0 1rem;
 }
 
 .showcase-area .container{
@@ -85,10 +90,15 @@
     .text{
         margin: 1.1rem 0 1.5rem;
         font-size: 1rem;
+        max-width: 400px;
     }
 
     .showcase-area #btn{
         font-size: 0.8rem;
+    }
+
+    .right{
+        max-width: 370px;
     }
 }
 

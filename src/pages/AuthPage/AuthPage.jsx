@@ -7,33 +7,82 @@ import football from "../../assets/football.svg";
 import soccer from "../../assets/soccer.svg";
 import "./AuthPage.css";
 import { useState } from "react";
-// import AxiosInstance from "../../config/axiosSetup";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  signinStart,
+  signinSuccess,
+  signinFailure,
+} from "../../redux/userSlice";
 
 const AuthPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [modeChanger, setModeChanger] = useState("");
   const [signUpData, setSignUpData] = useState({});
+  const [signInData, setSignInData] = useState({});
+  
 
-  const handleChange = (e) => {
+  const handleSignUpChange = (e) => {
     setSignUpData({
       ...signUpData,
-      [e.target.name]:e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSignUp = (e) => {
+  const handleSignInChange = (e) => {
+    setSignInData({
+      ...signInData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSignUp = async (e) => {
     e.preventDefault();
-        axios({
-        method:'POST',
-        url: '/api/auth/register',
-        data:signUpData
-      }).then((res) => {
-        setModeChanger("sign-in-mode");
-      }).catch((err) => {
-        console.log(err);
-      })
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signUpData),
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        console.log(data.message);
+        return;
+      }
+      console.log(data);
+      setModeChanger("sign-in-mode");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    dispatch(signinStart());
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signInData),
+      });
+      console.log(signInData);
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signinFailure(data.message));
+        console.log(data);
+        return;
+      }
+      dispatch(signinSuccess(data));
+      navigate("/homepage");
+    } catch (error) {
+      dispatch(signinFailure(error.message));
+    }
   };
   return (
     <>
@@ -44,13 +93,30 @@ const AuthPage = () => {
               <h2 className="auth-title">Sign in</h2>
               <div className="input-field">
                 <img src={userIcon} alt="" />
-                <input type="text" placeholder="Email" />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  value={signInData.email}
+                  onChange={handleSignInChange}
+                />
               </div>
               <div className="input-field">
                 <img src={lockIcon} alt="" />
-                <input type="password" placeholder="Password" />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  value={signInData.password}
+                  onChange={handleSignInChange}
+                />
               </div>
-              <input type="submit" className="btn" value="Login" />
+              <input
+                type="submit"
+                className="btn"
+                value="Login"
+                onClick={handleSignIn}
+              />
               <p className="google-text">or continue with google</p>
               <div className="google">
                 <img src={googleIcon} alt="" className="google-icon" />
@@ -66,7 +132,7 @@ const AuthPage = () => {
                   placeholder="Name"
                   name="name"
                   value={signUpData.name}
-                  onChange={handleChange}
+                  onChange={handleSignUpChange}
                 />
               </div>
               <div className="input-field">
@@ -76,7 +142,7 @@ const AuthPage = () => {
                   placeholder="Email"
                   name="email"
                   value={signUpData.email}
-                  onChange={handleChange}
+                  onChange={handleSignUpChange}
                 />
               </div>
               <div className="input-field">
@@ -86,7 +152,7 @@ const AuthPage = () => {
                   placeholder="Contact Number"
                   name="contactNumber"
                   value={signUpData.contactNumber}
-                  onChange={handleChange}
+                  onChange={handleSignUpChange}
                 />
               </div>
               <div className="input-field">
@@ -96,7 +162,7 @@ const AuthPage = () => {
                   placeholder="Password"
                   name="password"
                   value={signUpData.password}
-                  onChange={handleChange}
+                  onChange={handleSignUpChange}
                 />
               </div>
               <input

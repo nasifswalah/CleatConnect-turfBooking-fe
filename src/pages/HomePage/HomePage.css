@@ -1,0 +1,98 @@
+:root{
+    --bg-color: #fff;
+    --theme-color: #0DBA85;
+    --title-color: #03224b;
+    --text-color:#6c7f99;
+    --hover-color: #2e557a;
+    --main-font: 4rem;
+    --h2-font: 1.5rem;
+    --p-font: 1.1rem;
+}
+
+section{
+    padding: 80px 5%;
+}
+
+.search-area{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../assets/green.jpg);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+}
+
+.search-area-text{
+    font-family: "Paytone One", sans-serif;
+}
+
+.search-area-text h1{
+    font-size: var(--main-font);
+    line-height: 1.2;
+    color: var(--title-color);
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.search-area-text p{
+    color: var(--title-color);
+    font-size: var(--p-font);
+    font-weight: 400;
+}
+
+
+.turf-thumb{
+    position: relative;
+    transition: all 0.3s cubic-bezier(cubic-bezier(0.445, 0.05, 0.55, 0.95));
+    will-change: filter;
+    cursor: pointer;
+    width: 250px;
+    height: 250px; 
+    margin-top: 1.5rem;   
+}
+
+.turf-thumb img{
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.turf-thumb h3{
+    position: absolute;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: right;
+    color: var(--title-color);
+    top: 15px;
+    right: 25px;
+}
+
+.turf-conatiner-title{
+    text-align: center;
+}
+
+.turf-conatiner-title h2{
+    font-size: var(--h2-font);
+    line-height: 1.2;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 380px;
+}
+
+.turf-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit ,minmax(200px, auto));
+    grid-gap: 2rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+

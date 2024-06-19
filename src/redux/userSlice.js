@@ -1,26 +1,34 @@
-// import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
 
-// const AxiosInstance = axios.create({
-//     baseURL: import.meta.env.BASE_URL
-// });
+const initialState = {
+  currentUser: null,
+  error: null,
+  loading: false,
+};
 
-// AxiosInstance.interceptors.request.use((request) => {
-//     const token = localStorage.getItem('token');
-//     request.headers['Authorization'] = token;
-//     return request;
-// });
+const userSlice = createSlice({
+  name: "user",
+  initialState,
+  reducers: {
+    signinStart: (state) => {
+      state.loading = true;
+    },
+    signinSuccess: (state, action) => {
+      state.currentUser = action.payload;
+      state.loading = false;
+      state.error = null;
+    },
+    signinFailure: (state, action) => {
+      state.error = action.payload;
+      state.loading = false;
+    },
+  }
+})
 
-// AxiosInstance.interceptors.response.use((response) => {
-//     return response;
-// },
-// (error) => {
-//     if(error.response && error.response.status === 401){
-//         window.location.href = '/';
-//         localStorage.clear();
-//         console.log("Unauthorized user");
-//     }
-//     return Promise.reject(error);
-// })
+export const {
+    signinStart,
+    signinSuccess,
+    signinFailure,
+} = userSlice.actions;
 
-// export default AxiosInstance;
-
+export default userSlice.reducer;

@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-image: url("../../../footballImage.jpg");
+  background-image: url("../../assets/footballImage.jpg");
   background-size: cover;
   overflow: hidden;
 }
@@ -13,7 +13,7 @@
   width: 2000px;
   height: 2000px;
   border-radius: 50%;
-  background: linear-gradient(-45deg, #282883, #39FF14);
+  background: linear-gradient(-45deg, #282883, #0DBA85);
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
@@ -119,7 +119,7 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #457a2e;
+  background-color: #2e557a;
 }
 
 .google-text {
