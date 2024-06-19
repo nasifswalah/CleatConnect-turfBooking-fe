@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api' : {
-        target: 'https://cleat-connect-turf-booking-backend.vercel.app',
+        target: 'https://cleat-connect-turf-booking-backend-q4aj5yb2x.vercel.app',
         secure: false
       }
     }
