@@ -22,7 +22,7 @@ const AuthPage = () => {
   const [modeChanger, setModeChanger] = useState("");
   const [signUpData, setSignUpData] = useState({});
   const [signInData, setSignInData] = useState({});
-  
+
 
   const handleSignUpChange = (e) => {
     setSignUpData({
@@ -64,7 +64,7 @@ const AuthPage = () => {
     e.preventDefault();
     dispatch(signinStart());
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch("https://cleat-connect-turf-booking-backend.vercel.app", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
