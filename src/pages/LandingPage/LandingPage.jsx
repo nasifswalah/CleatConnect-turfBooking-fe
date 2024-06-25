@@ -13,7 +13,7 @@ const LandingPage = () => {
         <div className="showcase-area">
           <div className="container">
             <div className="left">
-              <div className="title">
+              <div className="landing-title">
                 <h3>Future is here</h3>
                 <h3>Start exploring now</h3>
               </div>

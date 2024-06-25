@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api' : {
-        target: 'https://cleat-connect-turf-booking-backend.vercel.app/',
+        target: 'http://localhost:5000/',
         secure: false
       }
     }
