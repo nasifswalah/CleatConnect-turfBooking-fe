@@ -14,6 +14,7 @@ import {
   signinSuccess,
   signinFailure,
 } from "../../redux/userSlice";
+import { ErrorToast, successToast } from "../../constants/toast";
 
 const AuthPage = () => {
   const navigate = useNavigate();
@@ -50,13 +51,14 @@ const AuthPage = () => {
       });
       const data = await res.json();
       if (data.success === false) {
-        console.log(data.message);
+        ErrorToast("Something went wrong")
         return;
       }
       console.log(data);
       setModeChanger("sign-in-mode");
+      successToast("User Created")
     } catch (error) {
-      console.log(error);
+      ErrorToast(error);
     }
   };
 
@@ -71,17 +73,18 @@ const AuthPage = () => {
         },
         body: JSON.stringify(signInData),
       });
-      console.log(signInData);
       const data = await res.json();
       if (data.success === false) {
         dispatch(signinFailure(data.message));
-        console.log(data);
+        ErrorToast("Somrthing went wrong")
         return;
       }
       dispatch(signinSuccess(data));
+      successToast("Logged in successfully")
       navigate("/homepage");
     } catch (error) {
       dispatch(signinFailure(error.message));
+      ErrorToast(error.message)
     }
   };
   return (

@@ -13,6 +13,8 @@ import CourtDetails from './pages/CourtDetailsPage/CourtDetails.jsx'
 import TurfCreation from './pages/TurfCreationPage/TurfCreation .jsx'
 import TurfUpdation from './pages/TurfUpdationPage/TurfUpdation.jsx'
 import CreateUser from './pages/AddUserPage/CreateUser.jsx'
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +54,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
+    <ToastContainer/>
     <RouterProvider router={router} />
     </PersistGate>
   </Provider>,

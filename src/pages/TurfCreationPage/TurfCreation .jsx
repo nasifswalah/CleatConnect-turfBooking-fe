@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './TurfCreation.css'
 import sampleImage from "../../assets/tennis.jpg"
 import editIcon from "../../assets/editIcon.svg"
@@ -6,6 +6,18 @@ import deleteIcon from "../../assets/deleteIcon.svg"
 import Navbar from '../../components/Navbar/Navbar'
 
 const TurfCreation  = () => {
+
+  const [imageFiles, setImageFiles] = useState([]);
+  const [newTurfData, setNewTurfData] = useState({
+    imageUrls: [],
+    name: '',
+    location: '',
+    contactNumber: '',
+    description: '',
+    turfType: '',
+    manager: '',
+    createdBy: '',
+  })
   return (
     <>
     <Navbar/>

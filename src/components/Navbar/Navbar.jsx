@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
 
   const { currentUser } = useSelector((state) => state.user);
-  const [profileButton, setProfileButton] = useState("");
   const [modeChanger, setModeChanger] = useState(false);
 
   return (
