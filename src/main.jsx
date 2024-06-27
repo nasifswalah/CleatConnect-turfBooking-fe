@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import { store, persistor } from './redux/store.js'
 import { PersistGate } from 'redux-persist/integration/react'
 import Profile from './pages/ProfilePage/Profile.jsx'
+import CourtDetails from './pages/CourtDetailsPage/CourtDetails.jsx'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: '/profile',
     element: <Profile/>
+  },
+  {
+    path: '/court-details',
+    element: <CourtDetails/>
   },
 ])
 
