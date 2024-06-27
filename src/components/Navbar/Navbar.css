@@ -78,7 +78,7 @@ header{
 }
 
 .links .nav-link:hover{
-    background-color: #0dba85;
+    background-color: #0DBA85;
     color: #03224b;
     box-shadow: 5px 10px 30px rgb(85 85 85 / 20%);
     border-radius: 4px;

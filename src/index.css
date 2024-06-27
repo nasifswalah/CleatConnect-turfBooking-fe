@@ -7,11 +7,11 @@
   scroll-behavior: smooth;
   text-decoration: none;
   list-style: none;
-}
-
-body, input, button{
+  outline: none;
+  border: none;
   font-family: "Poppins", sans-serif;
 }
+
 
 *::-webkit-scrollbar{
   display: none;

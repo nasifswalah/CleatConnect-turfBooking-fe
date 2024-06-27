@@ -42,7 +42,7 @@
   transition: 1s 0.7s ease-in-out;
 }
 
-form {
+.auth-container form {
   display: flex;
   align-items: center;
   justify-content: center;

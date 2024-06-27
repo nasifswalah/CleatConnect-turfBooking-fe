@@ -10,6 +10,8 @@ import { store, persistor } from './redux/store.js'
 import { PersistGate } from 'redux-persist/integration/react'
 import Profile from './pages/ProfilePage/Profile.jsx'
 import CourtDetails from './pages/CourtDetailsPage/CourtDetails.jsx'
+import TurfCreation from './pages/TurfCreationPage/TurfCreation .jsx'
+import TurfUpdation from './pages/TurfUpdationPage/TurfUpdation.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,8 +31,16 @@ const router = createBrowserRouter([
     element: <Profile/>
   },
   {
-    path: '/court-details',
+    path: '/turf-details',
     element: <CourtDetails/>
+  },
+  {
+    path: '/create-new-turf',
+    element: <TurfCreation/>
+  },
+  {
+    path: '/update-turf',
+    element: <TurfUpdation/>
   },
 ])
 
