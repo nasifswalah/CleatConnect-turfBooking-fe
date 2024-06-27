@@ -2,10 +2,8 @@ import React from "react";
 import "./Profile.css";
 import cameraIcon from "../../assets/cameraIcon.svg";
 import addUserIcon from "../../assets/addUserIcon.svg"
-import showCourtsIcon from "../../assets/showCourts.svg"
 import addNewCourtIcon from "../../assets/addNewCourt.svg"
 import showMyCourtIcon from "../../assets/showMyCourtIcon.svg"
-import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 
 const Profile = () => {
@@ -34,10 +32,9 @@ const Profile = () => {
               <p className="detail-data">1234567890</p>
             </div>
             <div className="buttons-container">
-              <Link to='' className="icon"><img src={addUserIcon} alt="" /></Link>
-              <Link to='' className="icon"><img src={addNewCourtIcon} alt="" /></Link>
-              <Link to='' className="icon"><img src={showCourtsIcon} alt="" /></Link>
-              <Link to='' className="icon"><img src={showMyCourtIcon} alt="" /></Link>
+              <span className="icon"><img src={addUserIcon} alt="" /></span>
+              <span className="icon"><img src={addNewCourtIcon} alt="" /></span>
+              <span className="icon"><img src={showMyCourtIcon} alt="" /></span>
               </div>
           </div>
         </div>

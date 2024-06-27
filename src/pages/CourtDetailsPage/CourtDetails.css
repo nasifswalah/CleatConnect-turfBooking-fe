@@ -1,14 +1,17 @@
-
+.main-wrapper{
+    position: relative;
+}
 
 .court-details-header{
     width: 100%;
     background: url(../../assets/search-area.png) no-repeat 50% 20% / cover;
-    min-height: 200px;
+    min-height: 220px;
     position: relative;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 }
 
 .court-details-header h1{
@@ -69,6 +72,52 @@
     height: 100%;
     display: block;
     object-fit: cover;
+}
+
+.add-slot{
+    margin-left: 1rem;
+}
+
+.cancel{
+    background-color: #929292;
+}
+
+.select-slot-modal{
+    position: absolute;
+    width: 100%;
+    height: 120vh;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00000096;
+}
+
+.slot-modal{
+    width: 100%;
+}
+
+.slot-modal p{
+    margin-top: 1rem;
+}
+
+.slot-display{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+.slot-display span{
+    border-radius: 0.5rem;
+    padding: 0.8rem 1rem;
+    background-color: #03224b;
+    color: #fff;
+    font-weight: 400;
 }
 
 @media (min-width: 860px){

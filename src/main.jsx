@@ -12,6 +12,7 @@ import Profile from './pages/ProfilePage/Profile.jsx'
 import CourtDetails from './pages/CourtDetailsPage/CourtDetails.jsx'
 import TurfCreation from './pages/TurfCreationPage/TurfCreation .jsx'
 import TurfUpdation from './pages/TurfUpdationPage/TurfUpdation.jsx'
+import CreateUser from './pages/AddUserPage/CreateUser.jsx'
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: '/update-turf',
     element: <TurfUpdation/>
+  },
+  {
+    path: '/create-new-user',
+    element: <CreateUser/>
   },
 ])
 

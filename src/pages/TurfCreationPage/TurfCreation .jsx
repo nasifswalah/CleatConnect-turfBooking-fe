@@ -20,6 +20,9 @@ const TurfCreation  = () => {
                 <textarea type="text" placeholder='Description' name='description' className='creation-box'/>
                 <input type="file" accept='image/*' multiple name='images' className='creation-box'/>
                 <button type='button' className='btn' >Create</button>
+                <button type="button" className="btn cancel">
+                Cancel
+              </button>
             </form>
         </div>
 
