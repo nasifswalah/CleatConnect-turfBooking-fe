@@ -80,6 +80,7 @@
 
 .cancel{
     background-color: #929292;
+    margin-left: 1rem;
 }
 
 .select-slot-modal{
@@ -97,6 +98,7 @@
 
 .slot-modal{
     width: 100%;
+    overflow: auto;
 }
 
 .slot-modal p{
@@ -118,6 +120,26 @@
     background-color: #03224b;
     color: #fff;
     font-weight: 400;
+    cursor: pointer;
+}
+
+.creation-box li{
+    padding: .5rem .1rem;
+    border-bottom: 1px solid #9e9e9e;
+    list-style: none;
+    width: 100%;
+    font-size: small;
+}
+
+.creation-list{
+    max-height: 100px;
+    overflow: auto;
+}
+
+.slot-selector{
+    font-weight: 600;
+    color: #395479;
+    cursor: pointer;
 }
 
 @media (min-width: 860px){

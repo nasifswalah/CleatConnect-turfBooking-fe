@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     element: <Profile/>
   },
   {
-    path: '/turf-details',
+    path: '/turf-details/:turfId',
     element: <CourtDetails/>
   },
   {

@@ -1,6 +1,5 @@
 import userIcon from "../../assets/userIcon.svg";
 import lockIcon from "../../assets/lockIcon.svg";
-import googleIcon from "../../assets/googleIcon.svg";
 import emailIcon from "../../assets/emailIcon.svg";
 import phoneIcon from "../../assets/phoneIcon.svg";
 import football from "../../assets/football.svg";
@@ -120,10 +119,6 @@ const AuthPage = () => {
                 value="Login"
                 onClick={handleSignIn}
               />
-              <p className="google-text">or continue with google</p>
-              <div className="google">
-                <img src={googleIcon} alt="" className="google-icon" />
-              </div>
             </form>
 
             <form action="" className="sign-up-form ">
@@ -174,10 +169,6 @@ const AuthPage = () => {
                 value="Sign up"
                 onClick={handleSignUp}
               />
-              <p className="google-text">or continue with google</p>
-              <div className="google">
-                <img src={googleIcon} alt="" className="google-icon" />
-              </div>
             </form>
           </div>
         </div>

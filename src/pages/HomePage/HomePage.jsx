@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./HomePage.css";
 import sampleImage from "../../assets/sample-image.png";
@@ -10,8 +10,32 @@ import linkdinIcon from "../../assets/linkdin.svg"
 import facebookIcon from "../../assets/facebook.svg"
 import twitterIcon from "../../assets/twitter.svg"
 import instagramIcon from "../../assets/instagram.svg"
+import { ErrorToast } from "../../constants/toast";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
+
+  const [turfData, setTurfData] = useState([]);
+
+  useEffect(() => {
+    const fetchUpdates = async () => {
+      try {
+        const res = await fetch(`/api/user/get-turfs`);
+        const data = await res.json();
+        if (data.success === false) {
+          ErrorToast("Something went wrong");
+          console.log(error);
+          return;
+        }
+        setTurfData(data.data);
+      } catch (error) {
+        ErrorToast(error.message);
+        console.log(error);
+      }
+    };
+    fetchUpdates();
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -41,28 +65,27 @@ const HomePage = () => {
               <img src={circketImage} alt="" />
             </div>
             <h4>Cricket Pitchs</h4>
-            <p>12 Pitches</p>
           </div>
           <div className="container-box">
             <div className="container-image">
               <img src={footballImage} alt="" />
             </div>
             <h4>Football Fields</h4>
-            <p>12 Fields</p>
+          
           </div>
           <div className="container-box">
             <div className="container-image">
               <img src={basketballImage} alt="" />
             </div>
             <h4>Basketball Courts</h4>
-            <p>12 Courts</p>
+           
           </div>
           <div className="container-box">
             <div className="container-image">
               <img src={tennisImage} alt="" />
             </div>
             <h4>Tennis Courts</h4>
-            <p>12 Courts</p>
+
           </div>
         </div>
       </section>
@@ -139,46 +162,15 @@ const HomePage = () => {
         </div>
 
         <div className="courts-content">
-          <div className="court-content">
-            <img src={sampleImage} alt="" />
-            <h5>Turf Name</h5>
-            <p>Location</p>
+          { turfData && turfData.map((turf) => (
+            <div className="court-content" key={turf._id}>
+              <Link to={`/turf-details/${turf._id}`}>
+            <img src={turf.imageUrls[1]} alt="turf image" />
+            </Link>
+            <h5>{turf.name}</h5>
+            <p>{turf.location}</p>
           </div>
-          <div className="court-content">
-            <img src={sampleImage} alt="" />
-            <h5>Turf Name</h5>
-            <p>Location</p>
-          </div>
-          <div className="court-content">
-            <img src={sampleImage} alt="" />
-            <h5>Turf Name</h5>
-            <p>Location</p>
-          </div>
-          <div className="court-content">
-            <img src={sampleImage} alt="" />
-            <h5>Turf Name</h5>
-            <p>Location</p>
-          </div>
-          <div className="court-content">
-            <img src={sampleImage} alt="" />
-            <h5>Turf Name</h5>
-            <p>Location</p>
-          </div>
-          <div className="court-content">
-            <img src={sampleImage} alt="" />
-            <h5>Turf Name</h5>
-            <p>Location</p>
-          </div>
-          <div className="court-content">
-            <img src={sampleImage} alt="" />
-            <h5>Turf Name</h5>
-            <p>Location</p>
-          </div>
-          <div className="court-content">
-            <img src={sampleImage} alt="" />
-            <h5>Turf Name</h5>
-            <p>Location</p>
-          </div>
+          ))}
         </div>
       </section>
 

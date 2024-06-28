@@ -122,30 +122,6 @@ form.sign-in-form {
   background-color: #2e557a;
 }
 
-.google-text {
-  padding: 0.7rem 0;
-  font-size: 1rem;
-}
-
-.google {
-  display: flex;
-  justify-content: center;
-}
-
-.google-icon {
-  height: 36px;
-  width: 36px;
-  border: 2px solid #0DBA85;
-  margin: 0 0.45rem;
-  border-radius: 50%;
-  padding: 3px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.google-icon:hover {
-  background-color: #0DBA85;
-}
 
 .panel-container {
   position: absolute;

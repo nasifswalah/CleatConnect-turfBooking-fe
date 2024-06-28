@@ -4,15 +4,38 @@ import cameraIcon from "../../assets/cameraIcon.svg";
 import addUserIcon from "../../assets/addUserIcon.svg"
 import addNewCourtIcon from "../../assets/addNewCourt.svg"
 import showMyCourtIcon from "../../assets/showMyCourtIcon.svg"
+import logoutIcon from "../../assets/logoutIcon.svg"
 import Navbar from "../../components/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {signOutUserStart, signOutUserSuccess, signOutUserFailure} from '../../redux/userSlice.js'
+import { ErrorToast, successToast } from "../../constants/toast";
 
 const Profile = () => {
 
   const { currentUser } = useSelector((state) => state.user);
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch("/api/auth/logout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signOutUserFailure(data.message));
+        ErrorToast(data.message);
+        return;
+      }
+      dispatch(signOutUserSuccess(data));
+      successToast(data.message);
+      navigate('/homepage');
+    } catch (error) {
+      dispatch(signOutUserFailure(error.message));
+      ErrorToast(error.message)
+    }
+  };
+
   return (
     <>
     <Navbar/>
@@ -41,6 +64,7 @@ const Profile = () => {
               { currentUser.data.role === "admin" && <> <span className="icon"><img src={addUserIcon} alt="icon" onClick={()=>navigate('/create-new-user')}/></span>
               <span className="icon"><img src={addNewCourtIcon} alt="icon" onClick={()=>navigate('/create-new-turf')} /></span> </>}
               { currentUser.data.role === "manager" && <span className="icon"><img src={showMyCourtIcon} alt="icon" /></span>}
+              <span className="icon"><img src={logoutIcon} alt="icon" onClick={handleLogout} /></span>
               </div>
           </div>
         </div>
