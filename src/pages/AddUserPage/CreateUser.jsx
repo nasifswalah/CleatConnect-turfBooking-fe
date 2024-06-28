@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
-import { ErrorToast, successToast } from '../../constants/toast';
+import { ErrorToast, successToast } from '../../constants/toast.js';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -90,7 +90,7 @@ const CreateUser = () => {
                 onChange={handleChange}
               />
               <input type="submit" className="btn create" value="Create" onClick={handleUserCreation}/>
-              <input type="button" className="btn cancel" value="Cancel" />
+              <input type="button" className="btn cancel" value="Cancel" onClick={() => navigate('/profile')}/>
             </form>
           </div>
         </div>

@@ -39,6 +39,7 @@
 
 .turf-creation-display{
     margin: 2rem auto;
+    text-align: center;
 }
 
 .turf-creation-display-table{
@@ -64,10 +65,40 @@
 
 .manage-btns img:first-child{
     padding-left: 1rem;
+    cursor: pointer;
 }
 
 .manage-btns img:last-child{
     padding-right: 1rem;
+    cursor: pointer;
+}
+
+.image-display-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #eceaea;
+    border-radius: 0.5rem;
+    max-width: 50rem;
+    margin: 1rem auto;
+}
+
+.image-display-container .uploaded-image{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+.image-display-container span .delete-icon{
+    cursor: pointer;
+}
+
+.turf-creation-display .list-btn{
+    margin-bottom: 1rem;
+    color: #395479;
+    cursor: pointer;
 }
 
 @media (max-width: 990px){

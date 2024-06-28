@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     element: <TurfCreation/>
   },
   {
-    path: '/update-turf',
+    path: '/update-turf/:turfId',
     element: <TurfUpdation/>
   },
   {

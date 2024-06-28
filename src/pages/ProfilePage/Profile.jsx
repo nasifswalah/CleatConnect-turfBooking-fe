@@ -40,7 +40,7 @@ const Profile = () => {
             <div className="buttons-container">
               { currentUser.data.role === "admin" && <> <span className="icon"><img src={addUserIcon} alt="icon" onClick={()=>navigate('/create-new-user')}/></span>
               <span className="icon"><img src={addNewCourtIcon} alt="icon" onClick={()=>navigate('/create-new-turf')} /></span> </>}
-              <span className="icon"><img src={showMyCourtIcon} alt="icon" /></span>
+              { currentUser.data.role === "manager" && <span className="icon"><img src={showMyCourtIcon} alt="icon" /></span>}
               </div>
           </div>
         </div>
